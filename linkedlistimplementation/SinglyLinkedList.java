@@ -65,7 +65,6 @@ public class SinglyLinkedList {
         Node delete = temp.next;
         temp.next = delete.next;
         delete.next = null;
-
     }
 
     public static void main(String[] args) {
