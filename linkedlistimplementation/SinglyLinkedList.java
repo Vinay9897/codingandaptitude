@@ -25,6 +25,12 @@ public class SinglyLinkedList {
         head.next.next = temp;
         size++;
     }
+    private void deleteFirst(){
+        if(size<0)return;
+        Node temp = head.next;
+        head.next = temp.next;
+        size--;
+    }
     private void traverse() {
         Node temp = head.next;
         while(temp!= null){
@@ -65,6 +71,18 @@ public class SinglyLinkedList {
         Node delete = temp.next;
         temp.next = delete.next;
         delete.next = null;
+        size--;
+    }
+    private int get(int index)
+    {
+        if(index>=size || index<0)return -1;
+        Node temp = head.next;// because head contain dummy node 0 at first
+        if(temp == null)return -1;
+        for(int i= 0; i<index;i++)
+        {
+            temp = temp.next;
+        }
+        return temp.val;
     }
 
     public static void main(String[] args) {
@@ -72,10 +90,12 @@ public class SinglyLinkedList {
 
         sll.addFirst(14);
         sll.addLast(16);
-        sll.addLast(16);
         sll.addAtIndex(3, 15);
         sll.deleteAtIndex(2);
-        // sll.addLast();
+        sll.addFirst(7);
+        sll.addFirst(4);
+        sll.deleteFirst();
         sll.traverse();
+         System.out.print(" " +sll.get(1));
     }
 }
