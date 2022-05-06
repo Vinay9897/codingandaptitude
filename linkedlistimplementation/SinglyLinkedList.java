@@ -1,6 +1,4 @@
-package linkedlistimplementation;
-
-import javax.sound.midi.Synthesizer;
+ package linkedlistimplementation;
 
 class Node {
     //field
@@ -50,7 +48,9 @@ public class SinglyLinkedList {
     }
     private void addAtIndex(int index, int val)
     {
-        if(index>size)return;
+        if(index>size)
+        {System.out.println("Adding at index "  +index + " not possible");
+        return;}
         Node temp = head;
         for(int i = 0;i<index;i++){
             temp = temp.next;
@@ -84,6 +84,20 @@ public class SinglyLinkedList {
         }
         return temp.val;
     }
+    Node temp = head;
+    private Node swapNode(Node head)
+    {
+        if(head == null) return null;
+        if(head !=null && head.next != null)
+        {
+            int node = head.val;
+            head.val = head.next.val;
+            head.next.val = node;
+        }
+        swapNode(head.next);
+        return temp;
+    }
+    
 
     public static void main(String[] args) {
         SinglyLinkedList sll = new SinglyLinkedList();
@@ -96,6 +110,33 @@ public class SinglyLinkedList {
         sll.addFirst(4);
         sll.deleteFirst();
         sll.traverse();
-         System.out.print(" " +sll.get(1));
+        System.out.print(" " +sll.get(1));
+        sll.swapNode(new Node(7));
+        sll.traverse();
     }
 }
+
+ // Node dummy;
+    // private void reverse(){
+    //      dummy = null;
+    //     Node temp = head.next;
+    //     Node nex = temp.next;
+    //     while(nex != null)
+    //     {
+    //         temp.next = dummy;
+    //         dummy = temp;
+    //         temp = nex;
+    //         nex = nex.next;
+    //     }
+    //     dummy = temp;
+    // }
+    // private void reverseTrav(){
+    //     while(dummy!= null)
+    //     {
+    //         System.out.print(dummy.val + "-->");
+    //         dummy = dummy.next;
+    //     }
+    //     System.out.print("null");
+    // }
+     //  sll.reverse();
+        // sll.reverseTrav();
