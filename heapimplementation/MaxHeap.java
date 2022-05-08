@@ -33,6 +33,43 @@ public class MaxHeap {
             parent = index/2;
         }
     }
+    public int pop()
+    {
+        if(realSize <1)
+        {
+            System.out.println("Sorry, we can't delete element anymore ");
+            return Integer.MIN_VALUE;
+        }
+        else{
+            int removeElement = arr[1];
+            arr[1] = arr[realSize];
+            realSize--;
+
+            int index = 1;
+            while(index <= realSize/2)
+            {
+                int left = index*2;
+                int right = index*2 +1;
+                if(arr[left] > arr[index] || arr[right] > arr[index])
+                {
+                    if(arr[left]< arr[right])
+                    {
+                        int temp = arr[left];
+                        arr[left] = arr[index];
+                        arr[index] = temp;
+                        index = left;
+                    }
+                    else{
+                        int temp = arr[right];
+                        arr[right] = arr[index];
+                        arr[index] = temp;
+                        index = right;
+                    }
+                }
+            }
+            return removeElement;
+        }
+    }
     public void traverse(){
         for(int i = 1;i<=realSize;i++)
         {
