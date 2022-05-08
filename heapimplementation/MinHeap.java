@@ -98,7 +98,6 @@ public class MinHeap {
         }
     }
     
-
     public static void main(String[] args) {
         MinHeap minHeap = new MinHeap(5);
         minHeap.add(5);
