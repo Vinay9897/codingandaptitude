@@ -76,6 +76,15 @@ public class MaxHeap {
             System.out.print(arr[i] + " ");
         }
     }
+    public int peek()
+    {
+        return arr[1];
+    }
+    public int min()
+    {
+        return arr[heapSize];
+    }
+
     public static void main(String[] args) {
         
         MaxHeap maxHeap = new MaxHeap(5);
