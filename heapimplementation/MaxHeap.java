@@ -52,7 +52,7 @@ public class MaxHeap {
                 int right = index*2 +1;
                 if(arr[left] > arr[index] || arr[right] > arr[index])
                 {
-                    if(arr[left]< arr[right])
+                    if(arr[left]> arr[right])
                     {
                         int temp = arr[left];
                         arr[left] = arr[index];
@@ -66,6 +66,9 @@ public class MaxHeap {
                         index = right;
                     }
                 }
+                else{
+                    break;
+            }
             }
             return removeElement;
         }
@@ -93,6 +96,11 @@ public class MaxHeap {
         maxHeap.add(3);
         maxHeap.add(4);
         maxHeap.add(5);
+        maxHeap.traverse();
+        System.out.println();
+        maxHeap.pop();
+        maxHeap.pop();
+        maxHeap.pop();
         maxHeap.traverse();
     }
 }
